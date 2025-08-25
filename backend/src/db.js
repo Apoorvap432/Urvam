@@ -1,8 +1,13 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI); // ✅ no extra options
+    console.log("✅ MongoDB connected");
+  } catch (err) {
+    console.error("❌ DB connection failed", err);
+    process.exit(1);
+  }
+};
 
-export async function connectDB(uri) {
-mongoose.set('strictQuery', true);
-await mongoose.connect(uri, { dbName: 'mini-plant-store' });
-console.log('✅ MongoDB connected');
-}
+export default connectDB;

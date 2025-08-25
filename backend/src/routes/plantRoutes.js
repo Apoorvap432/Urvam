@@ -1,5 +1,5 @@
 import express from "express";
-import { Plant } from "../models/Plant.js";
+import { Plant } from "../models/plant.js";
 
 const router = express.Router();
 
